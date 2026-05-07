@@ -41,3 +41,23 @@ The [enclosure](enclosure) folder has 3D-printable files for an optional case, s
 
 ![HID Remapper dual Pico version inside](images/remapper-dual2.jpg)
 ![HID Remapper dual Pico version](images/remapper-dual1.jpg)
+
+## Triple Pico version
+Triple configuration allows to send input from one physical device to two Pico boards.
+So it's possible to emulate two different HIDs with one input. It's mostly useful to
+convert trackball to Space Mouse, while keeping mouse function.
+
+Use remapper\_dual\_a.uf2 for a A and A2 side boards.
+Use remapper\_triple\_b.uf2 for B side board.
+
+Additional wiring should be provided as described in the table below.
+
+| A2 side | B side |
+| -----: | -----: |
+| VBUS (pin 40) | VBUS (pin 40) |
+| GND (pin 38) | GND (pin 38) |
+| GPIO20 (pin 26) | GPIO13 (pin 17) |
+| GPIO21 (pin 27) | GPIO12 (pin 16) |
+| GPIO26 (pin 31) | GPIO15 (pin 20) |
+| GPIO27 (pin 32) | GPIO14 (pin 19) |
+
