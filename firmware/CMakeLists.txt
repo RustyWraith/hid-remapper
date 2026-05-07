@@ -149,6 +149,29 @@ target_link_libraries(remapper_dual_b
 pico_add_extra_outputs(remapper_dual_b)
 pico_add_hex_output(remapper_dual_b)
 
+add_executable(remapper_triple_b
+    src/remapper_triple_b.cc
+    src/crc.cc
+    src/interval_override.cc
+    src/serial_triple.cc
+    src/out_report.cc
+    src/activity_led.cc
+    src/app_driver.cc
+    src/xbox.cc
+)
+target_include_directories(remapper_triple_b PRIVATE
+    src
+    src/tusb_config_host
+)
+target_link_libraries(remapper_triple_b
+    pico_stdlib
+    tinyusb_host
+    tinyusb_board
+    usb_midi_host
+)
+pico_add_extra_outputs(remapper_triple_b)
+pico_add_hex_output(remapper_triple_b)
+
 add_custom_command(
   OUTPUT dual_b_binary.c dual_b_binary.h
   DEPENDS remapper_dual_b
